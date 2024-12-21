@@ -9,6 +9,6 @@ public interface AutorResumen{
 
     String getApellido();
  
-    List<String> getCantidadLibros();
+    Long getCantidadLibros();
 
 }
