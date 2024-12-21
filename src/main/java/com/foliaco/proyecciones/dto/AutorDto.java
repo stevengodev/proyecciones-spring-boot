@@ -1,6 +1,5 @@
 package com.foliaco.proyecciones.dto;
 
-import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,6 +12,7 @@ public class AutorDto {
 
     private String apellido;
 
-    List<LibroDto> libros;
+    private String nacionalidad;
 
+    private String sexo;
 }
