@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.foliaco.proyecciones.dto.AutorDto;
 import com.foliaco.proyecciones.entity.AutorEntity;
 import com.foliaco.proyecciones.interfaces.AutorResumen;
 
@@ -31,5 +32,11 @@ public interface AutorRepository extends JpaRepository<AutorEntity, Long> {
            "WHERE a.id = :id " +
            "GROUP BY a.nombre")
     Tuple buscarBiografiaDeAutorPorId(@Param("id") Long id);
+
+
+    //proyeccion usando query nativa
+
+    @Query(name = "AutorDto.getAutoresDto",nativeQuery = true)
+    AutorDto getAutorDtoConQueryNativa(@Param("id") Long id);
 
 }

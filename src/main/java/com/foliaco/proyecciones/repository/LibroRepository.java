@@ -33,4 +33,11 @@ public interface LibroRepository extends JpaRepository<LibroEntity, Long> {
            "WHERE l.id = :id")
     Tuple buscarLibroDtoPorId(@Param("id") Long id);
 
+
+    // proyeccion dinamica
+    @Query(value = "SELECT l.titulo AS titulo, l.anioPublicacion AS anioPublicacion, l.genero AS genero, a.nombre AS autor " +
+    "FROM LibroEntity l LEFT JOIN l.autor a " +
+    "WHERE l.id = :id")
+    <T> T getResumenDeLibroPorId(@Param("id") Long id, Class<T> type);
+
 }
